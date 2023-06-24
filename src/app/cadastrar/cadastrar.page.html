@@ -1,0 +1,40 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Novo curso</ion-title>
+    <ion-buttons slot="primary">
+      <ion-back-button text="Voltar" icon="" color="tertiary" fill="outline"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"  style="margin: 50%; ">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title size="large" class="ion-text-center">Cadastro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list class="ion-text-center">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input [(ngModel)]="curso.nome"  ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-textarea [(ngModel)]="curso.descricao"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Link</ion-label>
+      <ion-input [(ngModel)]="curso.link" ></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-text-center">
+      <ion-button (click)="salvarCursos()" position="floating" style="width: 100px; height: 35px; margin-top: 20px;
+       margin-bottom: 20px; margin-left: 50%; ">Guardar</ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+
+      <ion-button [routerLink]="['/tabs/tab2/cadastrar']" >
+        <ion-label color="blue">Adicionar</ion-label>
+      </ion-button>
+        
+      <ion-toolbar>
+        <ion-searchbar (ionChange)="filtrarCursos($event)"></ion-searchbar> 
+      </ion-toolbar>
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-text-center">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title size="large">Cursos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="wrapper">
+    <div class="ion-activatable ripple-parent rounded-rectangle" *ngFor="let item of cursoFiltrado">
+      <ion-list >
+          <ion-item >
+            <div class="ion-card-body" style="margin-top: 3px;  margin-bottom: 8px; " >
+                <ion-text>
+                  <h4 class="ion-card-title">{{ item.nome }} </h4>
+                  <p class="ion-card-text">
+                    {{ item.descricao}}<br>
+                    {{item.link}}<br>
+                </ion-text>
+                <ion-button [routerLink]="['/tabs/tab2/editar-curso',item.codigo]" color="dark" >
+                  <ion-label>Editar</ion-label>
+                </ion-button>
+                <ion-button   color="danger" (click)="deletarCurso(item.codigo)">
+                  <ion-label>Eliminar</ion-label>
+                </ion-button><br>
+              </div>
+            </ion-item>
+        </ion-list>
+
+    </div>
+  </div>
+</ion-content>
+<router-outlet></router-outlet>
